@@ -1,0 +1,23 @@
+// name=proto/ra.proto
+syntax = "proto3";
+
+package ra;
+
+option go_package = "github.com/AnsiDK/Distributed-systems-MA4/proto;pb";
+
+service RAService {
+  rpc Request (RequestMsg) returns (Ack);
+  rpc Reply (ReplyMsg) returns (Ack);
+}
+
+message RequestMsg {
+  string from_id = 1;
+  int64 timestamp = 2;
+}
+
+message ReplyMsg {
+  string from_id = 1;
+  int64 timestamp = 2;
+}
+
+message Ack {}

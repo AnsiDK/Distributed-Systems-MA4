@@ -1,0 +1,9 @@
+# Go
+bin/
+build/
+dist/
+*.exe
+*.out
+
+# Protobuf generated files (optional to ignore; you can commit them if you prefer)
+proto/*.pb.go

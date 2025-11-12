@@ -1,0 +1,12 @@
+.PHONY: gen run3 clean
+
+gen:
+	protoc --go_out=paths=source_relative:. --go-grpc_out=paths=source_relative:. proto/ra.proto
+
+run3:
+	go run ./cmd/node --id n1 --addr :50051 --peers peers.json --auto --interval 7s &
+	go run ./cmd/node --id n2 --addr :50052 --peers peers.json --auto --interval 11s &
+	go run ./cmd/node --id n3 --addr :50053 --peers peers.json --auto --interval 13s &
+
+clean:
+	pkill -f "cmd/node" || true
